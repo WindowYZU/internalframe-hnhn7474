@@ -38,6 +38,26 @@ public class InternalFrameMenuBar {
         //create menubar
         //add menuitem
         //create new internalframe when the item is clicked
+        JMenuBar jMenuBar =new JMenuBar();
+        frame.setJMenuBar(jMenuBar);
+        JMenu menu =new JMenu("Edit");
+        jMenuBar.add(menu);
+        JMenuItem menuItem =new JMenuItem("add");
+        menu.add(menuItem);
+        menuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    JInternalFrame jInternalFrame =new JInternalFrame();
+                    frame.add(jInternalFrame);
+                    jInternalFrame.setLocation(desktopPane.getAllFrames().length*15,desktopPane.getAllFrames().length*15);
+                    jInternalFrame.setSize(200, 200);
+                    jInternalFrame.setMaximizable(true);
+                    jInternalFrame.setIconifiable(true);
+                    jInternalFrame.setVisible(true);
+                    jInternalFrame.setResizable(true);
+                    jInternalFrame.setClosable(true);                       
+            }
+        });
         
         ////////////////////////////
         frame.setVisible(true);
